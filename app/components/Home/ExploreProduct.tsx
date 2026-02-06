@@ -2,8 +2,12 @@ import products from "../../data/products"
 import { CiHeart } from "react-icons/ci";
 import { CiRead } from "react-icons/ci";
 import type { Product } from "../../types/product"; // need to tell typescript about the type of product to avoid error when mapping through products data
+import { useState } from "react";
+
 
 const ExploreProduct = () => {
+
+    const [allProductsVisible, setAllProductsVisible] = useState(false);  // to toggle the product section view all products
 
     return (
         <div className="max-w-7xl mx-auto px-4 py-16">
@@ -30,7 +34,7 @@ const ExploreProduct = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                {products.map((product: Product) => (
+                {products.slice(0, allProductsVisible ? products.length : 8).map((product: Product) => (
                     <div key={product.id} className="group">
                         <div className="relative bg-gray-100 rounded mb-4 p-8 flex items-center justify-center h-64 overflow-hidden">
                             {product.isNew && (
@@ -91,8 +95,10 @@ const ExploreProduct = () => {
 
             {/* View All Button */}
             <div className="flex justify-center">
-                <button className="bg-red-500 hover:bg-red-600 text-white px-12 py-3 rounded transition-colors">
-                    View All Products
+                <button className="bg-red-500 hover:bg-red-600 text-white px-12 py-3 rounded transition-colors" onClick={() => setAllProductsVisible(!allProductsVisible)}>
+                    {
+                        allProductsVisible ? 'Show Less' : 'View All Products'
+                    }
                 </button>
             </div>
         </div>
