@@ -69,7 +69,9 @@ const Navbar = () => {
             <CiSearch size={20} className="absolute right-3 text-gray-600" />
           </div>
           <CiHeart size={28} className="cursor-pointer hover:text-red-500 transition-colors" />
-          <CiShoppingCart size={28} className="cursor-pointer hover:text-blue-500 transition-colors" />
+          <NavLink to="/cart" >
+            <CiShoppingCart size={28} className="cursor-pointer hover:text-blue-500 transition-colors" />
+          </NavLink>
           <VscAccount size={28} className="cursor-pointer hover:text-green-500 transition-colors" />
         </div>
 
