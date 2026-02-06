@@ -4,4 +4,6 @@ export interface Sales {
     name: string;
     originalPrice: number;
     finalPrice: number;
+    ratingCount: number;
+    rating: number;
 }
