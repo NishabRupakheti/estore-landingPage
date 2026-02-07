@@ -5,7 +5,8 @@ export default [
     route("contact", "routes/contact.tsx"),
     route("about", "routes/about.tsx"),
     route("signup","routes/signup.tsx"),
-    route("cart","routes/cart.tsx")
+    route("cart","routes/cart.tsx"),
+    route("checkout","routes/Checkout.tsx"),
 
 ] satisfies RouteConfig;
 
