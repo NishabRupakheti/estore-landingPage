@@ -5,6 +5,7 @@ interface CartItem {
     name: string;
     price: number;
     img: string;
+    quantity: number;
 }
 
 interface CartState {
@@ -27,12 +28,18 @@ const productCartSlice = createSlice({
             const exists = state.items.some(item => item.id === action.payload.id);
 
             if (!exists) {
-                state.items.push(action.payload);
+                state.items.push({ ...action.payload, quantity: 1 });
             }
         },
         removeItemFromCart: (state, action: PayloadAction<number>) => {
             console.log("Removing item from cart:", action.payload);
             state.items = state.items.filter((item) => item.id !== action.payload);
+        },
+        updateItemQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
+            const item = state.items.find((item) => item.id === action.payload.id);
+            if (item) {
+                item.quantity = Math.max(1, action.payload.quantity);
+            }
         },
         clearCart: (state) => {
             console.log("Clearing cart", state);
@@ -41,5 +48,5 @@ const productCartSlice = createSlice({
     }
 });
 
-export const { addItemToCart, removeItemFromCart, clearCart } = productCartSlice.actions;
+export const { addItemToCart, removeItemFromCart, updateItemQuantity, clearCart } = productCartSlice.actions;
 export default productCartSlice.reducer;

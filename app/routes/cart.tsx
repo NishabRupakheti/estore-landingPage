@@ -1,4 +1,4 @@
-import { clearCart, removeItemFromCart } from "~/slice/product_cart_slice";
+import { clearCart, removeItemFromCart, updateItemQuantity } from "~/slice/product_cart_slice";
 import type { Route } from "./+types/home";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
@@ -19,17 +19,14 @@ const cart = () => {
   const { items } = useSelector((state: RootState) => state.productCart);
   const dispatch = useDispatch();
 
-  const [quantities, setQuantities] = useState<{ [key: string]: number }>(
-    items.reduce((acc, item) => ({ ...acc, [item.id]: 1 }), {})
-  );
   const [couponCode, setCouponCode] = useState("");
 
-  const updateQuantity = (id: string, value: number) => {
-    setQuantities(prev => ({ ...prev, [id]: Math.max(1, value) }));
+  const updateQuantity = (id: number, value: number) => {
+    dispatch(updateItemQuantity({ id, quantity: value }));
   };
 
   const subtotal = items.reduce((total: number, item: any) =>
-    total + item.price * (quantities[item.id] || 1), 0
+    total + item.price * item.quantity, 0
   );
 
   return (
@@ -75,14 +72,14 @@ const cart = () => {
                     type="number"
                     min="1"
                     className="w-20 border border-gray-300 rounded px-3 py-1 text-center focus:outline-none focus:ring-2 focus:ring-red-400"
-                    value={quantities[item.id] || 1}
+                    value={item.quantity}
                     onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
                   />
                 </div>
 
                 {/* Subtotal */}
                 <div className="text-right text-gray-900 font-medium">
-                  ${item.price * (quantities[item.id] || 1)}
+                  ${item.price * item.quantity}
                 </div>
               </div>
             ))}
