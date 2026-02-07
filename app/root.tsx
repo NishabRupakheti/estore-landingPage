@@ -9,6 +9,8 @@ import {
 import Navbar from "./components/Navbar";
 import BlackRibbon from "./components/BlackRibbon";
 import Footer from "./components/Footer";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -28,22 +30,24 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <BlackRibbon />
-        <Navbar />
-        {children}
-        <Footer />
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
+    <Provider store={store}>
+      <html lang="en">
+        <head>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <Meta />
+          <Links />
+        </head>
+        <body>
+          <BlackRibbon />
+          <Navbar />
+          {children}
+          <Footer />
+          <ScrollRestoration />
+          <Scripts />
+        </body>
+      </html>
+    </Provider>
   );
 }
 
