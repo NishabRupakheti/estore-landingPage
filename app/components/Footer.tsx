@@ -29,8 +29,8 @@ const Footer = () => {
                     {/* Support Section */}
                     <div className="flex flex-col gap-4">
                         <h3 className="text-xl font-bold">Support</h3>
-                        {companyInfo.map((info, index) => (
-                            <p key={index} className="text-sm">
+                        {companyInfo.map((info) => (
+                            <p key={info} className="text-sm">
                                 {info}
                             </p>
                         ))}
@@ -56,8 +56,8 @@ const Footer = () => {
                     {/* Quick Links Section */}
                     <div className="flex flex-col gap-4">
                         <h3 className="text-xl font-bold">Quick links</h3>
-                        {quickLinks.map((link, index) => (
-                            <p key={index} className="text-sm cursor-pointer hover:underline">
+                        {quickLinks.map((link) => (
+                            <p key={link} className="text-sm cursor-pointer hover:underline">
                                 {link}
                             </p>
                         ))}

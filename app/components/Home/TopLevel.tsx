@@ -37,7 +37,7 @@ const TopLevel = () => {
 
       {/* Right Banner Section */}
       <div className="flex-1 relative">
-        <div className="bg-black text-white rounded-sm overflow-hidden flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-8 md:py-12 min-h-85">
+        <div className="bg-black text-white rounded-sm overflow-hidden flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-8 md:py-12 min-h-[340px]">
           {/* Left Content */}
           <div className="flex flex-col gap-5 z-10 text-center md:text-left">
             <div className="flex items-center gap-6 justify-center md:justify-start">

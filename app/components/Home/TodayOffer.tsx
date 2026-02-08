@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, Fragment } from "react"
 import SalesData from "../../data/sales"
 import type { Sales } from "~/types/sales"
-import React from "react"
 
 const TodayOffer = () => {
     // time state for countdown timer
@@ -93,7 +92,7 @@ const TodayOffer = () => {
                         {/* Countdown Timer */}
                         <div className="flex items-center gap-3 md:gap-4 pb-1">
                             {timerData.map((item, index) => (
-                                <React.Fragment key={item.label}>
+                                <Fragment key={item.label}>
                                     <div className="text-center">
                                         <div className="text-[10px] md:text-xs font-medium mb-1">{item.label}</div>
                                         <div className="text-2xl md:text-3xl font-bold tabular-nums">
@@ -106,7 +105,7 @@ const TodayOffer = () => {
                                             :
                                         </span>
                                     )}
-                                </React.Fragment>
+                                </Fragment>
                             ))}
                         </div>
                     </div>
