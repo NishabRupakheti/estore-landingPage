@@ -15,7 +15,6 @@ export function meta({ }: Route.MetaArgs) {
 
 const cart = () => {
 
-
   const { items } = useSelector((state: RootState) => state.productCart);
   const dispatch = useDispatch();
 

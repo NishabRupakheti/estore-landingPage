@@ -5,12 +5,11 @@ import type { Product } from "../../types/product"; // need to tell typescript a
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../../slice/product_cart_slice";
-
+import { addToWishlist } from "../../slice/wishlist_slice";
 
 const ExploreProduct = () => {
 
     const [allProductsVisible, setAllProductsVisible] = useState(false);  // to toggle the product section view all products
-
     const dispatch = useDispatch();
 
     return (
@@ -47,7 +46,15 @@ const ExploreProduct = () => {
                                 </span>
                             )}
                             <div className="absolute top-3 right-3 flex flex-col gap-2">
-                                <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors">
+                                <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors cursor-pointer " onClick={() => {
+                                    dispatch(addToWishlist({
+                                        id: product.id,
+                                        name: product.name,
+                                        price: product.price,
+                                        img: product.img,
+                                    }))
+                                    window.alert("Added to wishlist")
+                                }} >
                                     <CiHeart size={20} />
                                 </button>
                                 <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors">
