@@ -61,7 +61,6 @@ const CheckOut = () => {
                         <img src="/app/images/bKash.png" alt="bKash" className="h-6" />
                         <img src="/app/images/visa.png" alt="Visa" className="h-6" />
                         <img src="/app/images/mastercard.png" alt="Mastercard" className="h-6" />
-                        <img src="/app/images/nagad.png" alt="Nagad" className="h-6" />
                     </div>
                 </label>
 

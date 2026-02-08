@@ -3,6 +3,7 @@ import { HiOutlineMail } from "react-icons/hi";
 
 
 const ContactCard = () => {
+
     return (
         <div className="max-w-sm rounded-md bg-white p-8 shadow-sm border border-gray-100 font-sans">
             {/* Call Section */}
@@ -33,7 +34,6 @@ const ContactCard = () => {
 
                 <div className="space-y-3 text-sm text-gray-800">
                     <p>Fill out our form and we will contact you within 24 hours.</p>
-                    <p>Emails: customer@exclusive.com</p>
                     <p>Emails: support@exclusive.com</p>
                 </div>
             </div>
