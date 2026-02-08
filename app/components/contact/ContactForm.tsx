@@ -1,7 +1,6 @@
 const ContactForm = () => {
     return (
         <form className="w-full max-w-4xl">
-            {/* Top Row: Name, Email, Phone */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 <input 
                     className="bg-gray-100 appearance-none rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-red-400" 

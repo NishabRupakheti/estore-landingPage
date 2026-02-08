@@ -1,3 +1,6 @@
+import { NavLink } from "react-router"
+
+
 const Footer = () => {
     return (
         <>
@@ -26,9 +29,17 @@ const Footer = () => {
                     <div className="flex flex-col gap-4">
                         <h3 className="text-xl font-bold">Account</h3>
                         <p className="text-sm cursor-pointer hover:underline">My Account</p>
-                        <p className="text-sm cursor-pointer hover:underline">Login / Register</p>
-                        <p className="text-sm cursor-pointer hover:underline">Cart</p>
-                        <p className="text-sm cursor-pointer hover:underline">Wishlist</p>
+
+                        <NavLink to="/signup" className="text-sm cursor-pointer hover:underline">
+                            Login / Register
+                        </NavLink>
+
+                        <NavLink to="/cart" className="text-sm cursor-pointer hover:underline">
+                            Cart 
+                        </NavLink>
+                        <NavLink to="/wishlist" className="text-sm cursor-pointer hover:underline">
+                            Wishlist
+                        </NavLink>
                     </div>
 
                     {/* Quick Links Section */}

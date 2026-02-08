@@ -5,7 +5,7 @@ const NewArrival = () => {
     return (
         <div className="bg-white max-w-7xl mx-auto px-4 py-16">
             <div className="flex items-center gap-4 mb-6">
-                <div className="w-5 h-10 bg-red-500 rounded"></div>
+                <div className="w-4 h-10 bg-red-500 rounded"></div>
                 <span className="text-red-500 font-semibold">Featured</span>
             </div>
             <h2 className="text-4xl font-bold mb-12">New Arrival</h2>
@@ -24,7 +24,7 @@ const NewArrival = () => {
                         <p className="text-sm mb-4 text-gray-300">
                             Black and White version of the PS5 coming out on sale.
                         </p>
-                        <button className="text-white font-medium underline underline-offset-4 hover:text-gray-300 transition-colors">
+                        <button className="text-white font-medium underline underline-offset-4 hover:text-gray-300 transition-colors cursor-pointer">
                             Shop Now
                         </button>
                     </div>
@@ -44,7 +44,7 @@ const NewArrival = () => {
                             <p className="text-sm mb-3 text-gray-300">
                                 Featured women collections that give you another vibe.
                             </p>
-                            <button className="text-white font-medium underline underline-offset-4 hover:text-gray-300 transition-colors">
+                            <button className="text-white font-medium underline underline-offset-4 hover:text-gray-300 transition-colors cursor-pointer ">
                                 Shop Now
                             </button>
                         </div>
@@ -64,7 +64,7 @@ const NewArrival = () => {
                                 <p className="text-xs mb-2 text-gray-300">
                                     Amazon wireless speakers
                                 </p>
-                                <button className="text-white font-medium text-sm underline underline-offset-4 hover:text-gray-300 transition-colors">
+                                <button className="text-white font-medium text-sm underline underline-offset-4 hover:text-gray-300 transition-colors cursor-pointer">
                                     Shop Now
                                 </button>
                             </div>
