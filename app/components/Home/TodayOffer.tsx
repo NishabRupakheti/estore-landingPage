@@ -103,7 +103,7 @@ const TodayOffer = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12" >
                 {SalesData.map((item: Sales) => (
-                    <div key={item.id} className="group relative" >
+                    <div key={item.id} className="group relative cursor-pointer hover:shadow-lg transition-shadow duration-300" >
                         {/* Product Image Container */}
                         <div className="relative bg-gray-100 rounded-lg p-8 mb-4 flex items-center justify-center h-64">
                             {/* Discount Badge */}

@@ -2,6 +2,7 @@ import type { Route } from "./+types/home";
 import OurStory from "~/components/about/OurStory";
 import SecondLevel from "~/components/about/SecondLevel";
 import Employee from "~/components/about/Employee";
+import Service from "~/components/about/Service";
 
 // this is for seo purpose : page title and meta tags for the page
 export function meta({ }: Route.MetaArgs) {
@@ -19,6 +20,7 @@ const About = () => {
       <OurStory />
       <SecondLevel />
       <Employee />
+      <Service />
     </>
   )
 }

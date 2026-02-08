@@ -39,8 +39,8 @@ const ExploreProduct = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 {products.slice(0, allProductsVisible ? products.length : 8).map((product: Product) => (
-                    <div key={product.id} className="group">
-                        <div className="relative bg-gray-100 rounded mb-4 p-8 flex items-center justify-center h-64 overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300">
+                    <div key={product.id} className="group cursor-pointer hover:shadow-lg transition-shadow duration-300 rounded-lg p-1 ">
+                        <div className="relative bg-gray-100 rounded mb-4 p-8 flex items-center justify-center h-64 overflow-hidden ">
                             {product.isNew && (
                                 <span className="absolute top-3 left-3 bg-green-500 text-white text-xs px-3 py-1 rounded">
                                     NEW
@@ -59,7 +59,10 @@ const ExploreProduct = () => {
                                 <button className="cursor-pointer" onClick={() => {
                                     // dispatch an action to add the product to the cart
                                     window.alert("Added to cart")
-                                    dispatch(addItemToCart(product))
+                                    dispatch(addItemToCart({
+                                        ...product,
+                                        quantity: 1, // default quantity when adding to cart
+                                    }))
                                 }} >
                                     Add to Cart
                                 </button>
