@@ -137,9 +137,12 @@ const cart = () => {
               <span className="text-gray-900 font-semibold">${subtotal}</span>
             </div>
 
-            <button className="w-full py-3 bg-red-500 text-white font-medium rounded hover:bg-red-600 transition-colors mt-4">
-              Process to checkout
-            </button>
+            <NavLink
+              to="/checkout"
+              className="block w-full text-center px-6 py-3 bg-red-500 text-white font-medium rounded hover:bg-red-600 transition-colors"
+            >
+              Proceed To Checkout
+            </NavLink>
           </div>
         </div>
       </div>
