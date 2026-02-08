@@ -7,6 +7,7 @@ export default [
     route("signup","routes/signup.tsx"),
     route("cart","routes/cart.tsx"),
     route("checkout","routes/checkout.tsx"),
+    route("wishlist","routes/wishlist.tsx"),
     route("*", "components/NotFound.tsx"),
 ] satisfies RouteConfig;
 

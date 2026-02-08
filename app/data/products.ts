@@ -10,7 +10,7 @@ const productDetails = [
   { id: 11, img: "/app/images/wireless-earbuds.png", name: "Wireless Noise-Cancelling Earbuds", price: 180, rating: 4.5, reviews: 420 },
   { id: 12, img: "/app/images/smartwatch.png", name: "Fitness Smartwatch", price: 220, rating: 4.8, reviews: 280, isNew: true },
   { id: 13, img: "/app/images/skincare-set.png", name: "Anti-Aging Skincare Set", price: 320, rating: 4.7, reviews: 190 },
-  { id: 14, img: "/app/images/airfryer.png", name: "Digital Air Fryer 5L", price: 140, rating: 4.6, reviews: 310 },
+  { id: 14, img: "/app/images/airfryer.png", name: "Digital Air Fryer 5L", price: 140, rating: 4.6, reviews: 310, colors: ["#F59E0B", "yellow"] },
   { id: 15, img: "/app/images/yoga-mat.png", name: "Eco-Friendly Yoga Mat", price: 85, rating: 4.4, reviews: 145, colors: ["#10B981", "#3B82F6"] },
   { id: 16, img: "/app/images/rvac.png", name: "Smart Robot Vacuum", price: 450, rating: 4.5, reviews: 210, isNew: true }
 ];
