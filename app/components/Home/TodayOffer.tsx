@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import SalesData from "../../data/sales"
 import type { Sales } from "~/types/sales"
+import React from "react"
 
 const TodayOffer = () => {
     // time state for countdown timer
@@ -10,6 +11,29 @@ const TodayOffer = () => {
         minutes: 19,
         seconds: 56
     })
+
+
+    const timerData = [
+        {
+            label: "Days",
+            value: timeLeft.days
+
+        },
+        {
+            label: "Hours",
+            value: timeLeft.hours
+
+        },
+        {
+            label: "Minutes",
+            value: timeLeft.minutes
+
+        },
+        {
+            label: "Seconds",
+            value: timeLeft.seconds
+        }
+    ]
 
     // useEffect to handle countdown timer logic ... 
 
@@ -68,28 +92,22 @@ const TodayOffer = () => {
 
                         {/* Countdown Timer */}
                         <div className="flex items-center gap-3 md:gap-4 pb-1">
-                            <div className="text-center">
-                                <div className="text-[10px] md:text-xs font-medium mb-1">Days</div>
-                                <div className="text-2xl md:text-3xl font-bold">{String(timeLeft.days).padStart(2, '0')}</div>
-                            </div>
-                            <span className="text-red-500 text-xl md:text-2xl font-bold pb-1">:</span>
+                            {timerData.map((item, index) => (
+                                <React.Fragment key={item.label}>
+                                    <div className="text-center">
+                                        <div className="text-[10px] md:text-xs font-medium mb-1">{item.label}</div>
+                                        <div className="text-2xl md:text-3xl font-bold tabular-nums">
+                                            {String(item.value).padStart(2, '0')}
+                                        </div>
+                                    </div>
 
-                            <div className="text-center">
-                                <div className="text-[10px] md:text-xs font-medium mb-1">Hours</div>
-                                <div className="text-2xl md:text-3xl font-bold">{String(timeLeft.hours).padStart(2, '0')}</div>
-                            </div>
-                            <span className="text-red-500 text-xl md:text-2xl font-bold pb-1">:</span>
-
-                            <div className="text-center">
-                                <div className="text-[10px] md:text-xs font-medium mb-1">Minutes</div>
-                                <div className="text-2xl md:text-3xl font-bold">{String(timeLeft.minutes).padStart(2, '0')}</div>
-                            </div>
-                            <span className="text-red-500 text-xl md:text-2xl font-bold pb-1">:</span>
-
-                            <div className="text-center">
-                                <div className="text-[10px] md:text-xs font-medium mb-1">Seconds</div>
-                                <div className="text-2xl md:text-3xl font-bold">{String(timeLeft.seconds).padStart(2, '0')}</div>
-                            </div>
+                                    {index < timerData.length - 1 && (
+                                        <span className="text-red-500 text-xl md:text-2xl font-bold pb-1 self-end mb-1">
+                                            :
+                                        </span>
+                                    )}
+                                </React.Fragment>
+                            ))}
                         </div>
                     </div>
                 </div>

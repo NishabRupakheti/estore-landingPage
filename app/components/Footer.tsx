@@ -2,6 +2,15 @@ import { NavLink } from "react-router"
 
 
 const Footer = () => {
+
+    const quickLinks = ["Privacy Policy", "Terms of Service", "FAQ", "Contact"];
+    
+    const companyInfo = [
+        "Emmanantie 10k, Jyvaskyla, Finland",
+        "Phone: +358 44 1234567",
+        "Email: support@example.com"
+    ];
+
     return (
         <>
             <div className="bg-black text-white px-4 py-10 md:px-8 lg:px-16">
@@ -20,9 +29,11 @@ const Footer = () => {
                     {/* Support Section */}
                     <div className="flex flex-col gap-4">
                         <h3 className="text-xl font-bold">Support</h3>
-                        <p className="text-sm">Emmanantie 10k, Jyvaskyla, Finland</p>
-                        <p className="text-sm">Phone: +358 44 1234567</p>
-                        <p className="text-sm">Email: support@example.com</p>
+                        {companyInfo.map((info, index) => (
+                            <p key={index} className="text-sm">
+                                {info}
+                            </p>
+                        ))}
                     </div>
 
                     {/* Account Section */}
@@ -35,7 +46,7 @@ const Footer = () => {
                         </NavLink>
 
                         <NavLink to="/cart" className="text-sm cursor-pointer hover:underline">
-                            Cart 
+                            Cart
                         </NavLink>
                         <NavLink to="/wishlist" className="text-sm cursor-pointer hover:underline">
                             Wishlist
@@ -45,10 +56,11 @@ const Footer = () => {
                     {/* Quick Links Section */}
                     <div className="flex flex-col gap-4">
                         <h3 className="text-xl font-bold">Quick links</h3>
-                        <p className="text-sm cursor-pointer hover:underline">Privacy Policy</p>
-                        <p className="text-sm cursor-pointer hover:underline">Terms of Service</p>
-                        <p className="text-sm cursor-pointer hover:underline">FAQ</p>
-                        <p className="text-sm cursor-pointer hover:underline">Contact</p>
+                        {quickLinks.map((link, index) => (
+                            <p key={index} className="text-sm cursor-pointer hover:underline">
+                                {link}
+                            </p>
+                        ))}
                     </div>
                 </div>
             </div>
