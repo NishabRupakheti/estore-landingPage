@@ -84,7 +84,9 @@ const Navbar = () => {
             className="cursor-pointer hover:text-gray-600 transition-colors"
             onClick={() => setIsSearchOpen(!isSearchOpen)}
           />
-          <CiHeart size={24} className="cursor-pointer hover:text-red-500 transition-colors" />
+          <NavLink to="/wishlist" >
+            <CiHeart size={28} className="cursor-pointer hover:text-red-500 transition-colors" />
+          </NavLink>
           <NavLink to="/cart" >
             <CiShoppingCart size={28} className="cursor-pointer hover:text-blue-500 transition-colors" />
           </NavLink>
