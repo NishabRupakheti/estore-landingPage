@@ -20,36 +20,73 @@ const Footer = () => {
                     {/* Support Section */}
                     <div className="flex flex-col gap-4">
                         <h3 className="text-xl font-bold">Support</h3>
-                        <p className="text-sm">Emmanantie 10k, Jyvaskyla, Finland</p>
-                        <p className="text-sm">Phone: +358 44 1234567</p>
-                        <p className="text-sm">Email: support@example.com</p>
+                        {['Emmanantie 10k, Jyvaskyla, Finland', 'Phone: +358 44 1234567', 'Email: support@example.com'].map((info, index) => (
+                            <p key={index} className="text-sm">{info}</p>
+                        ))}
                     </div>
 
                     {/* Account Section */}
                     <div className="flex flex-col gap-4">
                         <h3 className="text-xl font-bold">Account</h3>
                         <p className="text-sm cursor-pointer hover:underline">My Account</p>
-
-                        <NavLink to="/signup" className="text-sm cursor-pointer hover:underline">
-                            Login / Register
-                        </NavLink>
-
-                        <NavLink to="/cart" className="text-sm cursor-pointer hover:underline">
-                            Cart 
-                        </NavLink>
-                        <NavLink to="/wishlist" className="text-sm cursor-pointer hover:underline">
-                            Wishlist
-                        </NavLink>
+                        {[
+                            { to: '/signup', label: 'Login / Register' },
+                            { to: '/cart', label: 'Cart' },
+                            { to: '/wishlist', label: 'Wishlist' }
+                        ].map((link) => (
+                            <NavLink key={link.to} to={link.to} className="text-sm cursor-pointer hover:underline">
+                                {link.label}
+                            </NavLink>
+                        ))}
                     </div>
 
                     {/* Quick Links Section */}
                     <div className="flex flex-col gap-4">
                         <h3 className="text-xl font-bold">Quick links</h3>
-                        <p className="text-sm cursor-pointer hover:underline">Privacy Policy</p>
-                        <p className="text-sm cursor-pointer hover:underline">Terms of Service</p>
-                        <p className="text-sm cursor-pointer hover:underline">FAQ</p>
-                        <p className="text-sm cursor-pointer hover:underline">Contact</p>
+                        {['Privacy Policy', 'Terms of Service', 'FAQ', 'Contact'].map((link) => (
+                            <p key={link} className="text-sm cursor-pointer hover:underline">
+                                {link}
+                            </p>
+                        ))}
                     </div>
+
+                    {/* Download App Section */}
+                    <div className="flex flex-col gap-4">
+                        <h3 className="text-xl font-bold">Download App</h3>
+                        <p className="text-xs text-gray-400">Save $3 with App New User Only</p>
+
+                        {/* QR Code and App Store Buttons */}
+                        <div className="flex gap-2">
+                            {/* QR Code */}
+                            <div className="bg-white p-1 rounded">
+                                <img src="/app/images/qrcode.png" alt="QR code" className="w-20 h-20" />
+                            </div>
+
+                            {/* App Store Buttons */}
+                            <div className="flex flex-col gap-2">
+                                <img src="/app/images/gplay.png" alt="Get it on Google Play" className="h-10 cursor-pointer hover:opacity-80 transition-opacity" />
+                                <img src="/app/images/appstore.png" alt="Download on the App Store" className="h-10 cursor-pointer hover:opacity-80 transition-opacity" />
+                            </div>
+                        </div>
+
+                        {/* Social Media Icons */}
+                        <div className="flex gap-6 mt-2">
+                            {[
+                                { src: '/app/images/Icon-Facebook.png', alt: 'Facebook' },
+                                { src: '/app/images/icontwitter.png', alt: 'Twitter' },
+                                { src: '/app/images/icon-instagram.png', alt: 'Instagram' },
+                                { src: '/app/images/Icon-Linkedin.png', alt: 'LinkedIn' }
+                            ].map((social) => (
+                                <img
+                                    key={social.alt}
+                                    src={social.src}
+                                    alt={social.alt}
+                                    className="w-6 h-6 cursor-pointer hover:opacity-80 transition-opacity"
+                                />
+                            ))}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </>

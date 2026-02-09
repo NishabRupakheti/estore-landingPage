@@ -33,7 +33,7 @@ const Wishlist = () => {
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-xl font-normal">Wishlist ({items.length})</h1>
         <button
-          className="px-8 py-3 border border-gray-800 text-gray-900 font-medium rounded hover:bg-gray-50 transition-colors"
+          className="px-8 py-3 border cursor-pointer border-gray-800 text-gray-900 font-medium rounded hover:bg-gray-50 transition-colors"
           onClick={MoveToBag}
         >
           Move All To Bag
@@ -41,64 +41,54 @@ const Wishlist = () => {
       </div>
 
       {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {items.map((item) => (
-          <div key={item.id} className="relative group">
-            {/* Product Card */}
-            <div className="bg-gray-100 rounded-lg overflow-hidden mb-4 relative">
+          <div key={item.id} className="group cursor-pointer hover:shadow-lg transition-shadow duration-300 rounded-lg p-1">
+            <div className="relative bg-gray-100 rounded mb-4 p-8 flex items-center justify-center h-64 overflow-hidden">
               {/* Discount Badge */}
               {item.discount && (
-                <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-medium px-3 py-1 rounded">
+                <span className="absolute top-3 left-3 bg-red-500 text-white text-xs px-3 py-1 rounded">
                   -{item.discount}%
-                </div>
+                </span>
               )}
 
               {/* Delete Icon */}
-              <button
-                className="absolute top-3 right-3 bg-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
-                onClick={() => dispatch(removeFromWishlist(item.id))}
-              >
-                <FaRegTrashAlt className="text-sm" />
-              </button>
-
-              {/* Product Image */}
-              <div className="aspect-square flex items-center justify-center p-8">
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="max-w-full max-h-full object-contain"
-                />
+              <div className="absolute top-3 right-3">
+                <button
+                  className="w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors"
+                  onClick={() => dispatch(removeFromWishlist(item.id))}
+                >
+                  <FaRegTrashAlt className="text-sm" />
+                </button>
               </div>
+
+              <img src={item.img} alt={item.name} className="max-h-40 object-contain" />
+
+              {/* Add To Cart Button - Shows at bottom */}
+              <button
+                className="absolute bottom-0 left-0 right-0 bg-black text-white py-2 transition-opacity cursor-pointer"
+                onClick={() => {
+                  dispatch(addItemToCart({
+                    ...item,
+                    quantity: 1,
+                  }));
+                  dispatch(removeFromWishlist(item.id));
+                }}
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <FaShoppingCart className="text-sm" />
+                  <span>Add To Cart</span>
+                </div>
+              </button>
             </div>
 
-            {/* Add To Cart Button */}
-            <button
-              className="w-full bg-black text-white py-2 rounded flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors mb-3"
-              onClick={() => {
-                dispatch(addItemToCart({
-                  ...item,
-                  quantity: 1,
-                }));
-                dispatch(removeFromWishlist(item.id));
-              }}
-            >
-              <FaShoppingCart className="text-sm" />
-              Add To Cart
-            </button>
-
             {/* Product Info */}
-            <div>
-              <h3 className="font-medium text-gray-900 mb-1">{item.name}</h3>
-              <div className="flex items-center gap-3">
-                {item.discount ? (
-                  <>
-                    <span className="text-red-500 font-medium">${item.price}</span>
-                    <span className="text-gray-400 line-through">${item.originalPrice}</span>
-                  </>
-                ) : (
-                  <span className="text-red-500 font-medium">${item.price}</span>
-                )}
-              </div>
+            <h4 className="font-semibold mb-2">{item.name}</h4>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-red-500 font-semibold">${item.price}</span>
+              {item.originalPrice && (
+                <span className="line-through text-gray-400">${item.originalPrice}</span>
+              )}
             </div>
           </div>
         ))}

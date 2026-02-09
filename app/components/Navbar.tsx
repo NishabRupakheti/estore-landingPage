@@ -19,43 +19,29 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-4 md:px-8 py-4 md:py-6">
         {/* Logo */}
         <div className="text-xl md:text-2xl font-bold">
-          Exclusive
+          <NavLink to="/" className="text-gray-900 hover:text-gray-700 transition-colors">
+            Exclusive
+          </NavLink>
         </div>
 
         {/* Desktop Navigation Links */}
         <div className="hidden lg:flex gap-8">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
+            {[
+            { to: "/", label: "Home" },
+            { to: "/contact", label: "Contact" },
+            { to: "/about", label: "About" },
+            { to: "/signup", label: "Sign Up" }
+            ].map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : "hover:underline hover:underline-offset-4"
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : "hover:underline hover:underline-offset-4"
-            }
-          >
-            Contact
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : "hover:underline hover:underline-offset-4"
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/signup"
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : "hover:underline hover:underline-offset-4"
-            }
-          >
-            Sign Up
-          </NavLink>
+              }
+            >
+              {label}
+            </NavLink>
+            ))}
         </div>
 
         {/* Desktop Search and Icons */}
@@ -117,42 +103,23 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden border-t border-gray-200 bg-white">
           <div className="flex flex-col px-4 py-4 space-y-4">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive ? "underline underline-offset-4 py-2" : "hover:underline hover:underline-offset-4 py-2"
-              }
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                isActive ? "underline underline-offset-4 py-2" : "hover:underline hover:underline-offset-4 py-2"
-              }
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </NavLink>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                isActive ? "underline underline-offset-4 py-2" : "hover:underline hover:underline-offset-4 py-2"
-              }
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </NavLink>
-            <NavLink
-              to="/signup"
-              className={({ isActive }) =>
-                isActive ? "underline underline-offset-4 py-2" : "hover:underline hover:underline-offset-4 py-2"
-              }
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Sign Up
-            </NavLink>
+            {[
+              { to: "/", label: "Home" },
+              { to: "/contact", label: "Contact" },
+              { to: "/about", label: "About" },
+              { to: "/signup", label: "Sign Up" }
+            ].map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4 py-2" : "hover:underline hover:underline-offset-4 py-2"
+                }
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {label}
+              </NavLink>
+            ))}
           </div>
         </div>
       )}
