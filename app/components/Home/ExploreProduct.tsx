@@ -52,8 +52,9 @@ const ExploreProduct = () => {
                                         name: product.name,
                                         price: product.price,
                                         img: product.img,
+                                        originalPrice: product.originalPrice,
                                     }))
-                                    window.alert("Added to wishlist")
+                                    // TODO: Implement toast notification for better UX
                                 }} >
                                     <CiHeart size={20} />
                                 </button>
@@ -64,8 +65,7 @@ const ExploreProduct = () => {
                             <img src={product.img} alt={product.name} className="max-h-40 object-contain" />
                             <div className="absolute bottom-0 left-0 right-0 bg-black text-white text-center py-2 cursor-pointer hover:bg-gray-800 opacity-0 group-hover:opacity-100 transition-opacity">
                                 <button className="cursor-pointer" onClick={() => {
-                                    // dispatch an action to add the product to the cart
-                                    window.alert("Added to cart")
+                                    // TODO: Implement toast notification for better UX
                                     dispatch(addItemToCart({
                                         id: product.id,
                                         name: product.name,

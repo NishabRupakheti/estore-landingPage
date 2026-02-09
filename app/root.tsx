@@ -6,11 +6,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import * as React from "react";
 import Navbar from "./components/Navbar";
 import BlackRibbon from "./components/BlackRibbon";
 import Footer from "./components/Footer";
-import { Provider } from "react-redux";
-import { store } from "./store";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -30,29 +29,55 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <Provider store={store}>
-      <html lang="en">
-        <head>
-          <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <Meta />
-          <Links />
-        </head>
-        <body>
-          <BlackRibbon />
-          <Navbar />
-          {children}
-          <Footer />
-          <ScrollRestoration />
-          <Scripts />
-        </body>
-      </html>
-    </Provider>
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <BlackRibbon />
+        <Navbar />
+        {children}
+        <Footer />
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
   );
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <ClientReduxProvider>
+      <Outlet />
+    </ClientReduxProvider>
+  );
+}
+
+// Client-only Redux Provider wrapper to prevent SSR hydration issues
+function ClientReduxProvider({ children }: { children: React.ReactNode }) {
+  // Lazy load Redux Provider and store to ensure it's only used on the client
+  const [ReduxProvider, setReduxProvider] = React.useState<React.ComponentType<{ children: React.ReactNode; store: any }> | null>(null);
+  const [reduxStore, setReduxStore] = React.useState<any>(null);
+
+  React.useEffect(() => {
+    // This only runs on the client
+    import("react-redux").then((module) => {
+      setReduxProvider(() => module.Provider);
+    });
+    import("./store").then((module) => {
+      setReduxStore(module.store);
+    });
+  }, []);
+
+  // During SSR or before Redux loads, render children without Redux
+  if (!ReduxProvider || !reduxStore) {
+    return <>{children}</>;
+  }
+
+  return <ReduxProvider store={reduxStore}>{children}</ReduxProvider>;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

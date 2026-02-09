@@ -30,7 +30,6 @@ const productCartSlice = createSlice({
 
     reducers: {
         addItemToCart: (state, action: PayloadAction<CartItem>) => {
-            console.log("Adding item to cart:", action.payload);
             const exists = state.items.some(item => item.id === action.payload.id);
 
             if (!exists) {
@@ -38,7 +37,6 @@ const productCartSlice = createSlice({
             }
         },
         removeItemFromCart: (state, action: PayloadAction<number>) => {
-            console.log("Removing item from cart:", action.payload);
             state.items = state.items.filter((item) => item.id !== action.payload);
         },
         updateItemQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
@@ -48,7 +46,6 @@ const productCartSlice = createSlice({
             }
         },
         clearCart: (state) => {
-            console.log("Clearing cart", state);
             state.items = [];
         },
     }

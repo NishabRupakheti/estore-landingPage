@@ -50,34 +50,46 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="What are you looking for?"
+              aria-label="Search products"
               className="bg-gray-100 px-4 py-2 pr-10 rounded text-sm outline-none focus:ring-1 focus:ring-gray-300 w-48 lg:w-auto"
             />
-            <CiSearch size={20} className="absolute right-3 text-gray-600" />
+            <CiSearch size={20} className="absolute right-3 text-gray-600" aria-hidden="true" />
           </div>
-          <NavLink to="/wishlist" >
+          <NavLink to="/wishlist" aria-label="View wishlist">
             <CiHeart size={28} className="cursor-pointer hover:text-red-500 transition-colors" />
           </NavLink>
-          <NavLink to="/cart" >
+          <NavLink to="/cart" aria-label="View shopping cart">
             <CiShoppingCart size={28} className="cursor-pointer hover:text-blue-500 transition-colors" />
           </NavLink>
-          <VscAccount size={28} className="cursor-pointer hover:text-green-500 transition-colors" />
+          <button 
+            aria-label="User account"
+            className="p-2 rounded hover:bg-gray-100 transition-colors"
+          >
+            <VscAccount size={24} className="text-gray-900" />
+          </button>
         </div>
 
         {/* Mobile Icons */}
         <div className="flex md:hidden items-center gap-4">
-          <CiSearch
-            size={24}
-            className="cursor-pointer hover:text-gray-600 transition-colors"
+          <button
             onClick={() => setIsSearchOpen(!isSearchOpen)}
-          />
-          <NavLink to="/wishlist" >
+            aria-label="Toggle search"
+            className="p-1"
+          >
+            <CiSearch
+              size={24}
+              className="cursor-pointer hover:text-gray-600 transition-colors"
+            />
+          </button>
+          <NavLink to="/wishlist" aria-label="View wishlist">
             <CiHeart size={28} className="cursor-pointer hover:text-red-500 transition-colors" />
           </NavLink>
-          <NavLink to="/cart" >
+          <NavLink to="/cart" aria-label="View shopping cart">
             <CiShoppingCart size={28} className="cursor-pointer hover:text-blue-500 transition-colors" />
           </NavLink>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             className="p-1"
           >
             {isMobileMenuOpen ? <IoClose size={28} /> : <CiMenuBurger size={24} />}
@@ -92,9 +104,10 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="What are you looking for?"
+              aria-label="Search products"
               className="w-full bg-gray-100 px-4 py-2 pr-10 rounded text-sm outline-none focus:ring-1 focus:ring-gray-300"
             />
-            <CiSearch size={20} className="absolute right-3 text-gray-600" />
+            <CiSearch size={20} className="absolute right-3 text-gray-600" aria-hidden="true" />
           </div>
         </div>
       )}

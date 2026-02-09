@@ -11,3 +11,4 @@ export const store = configureStore({
 
 
 export type RootState = ReturnType<typeof store.getState>; // creating a typescript type representing entire shape of redux state
+export type AppDispatch = typeof store.dispatch;
