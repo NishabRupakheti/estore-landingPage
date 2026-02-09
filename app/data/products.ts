@@ -5,7 +5,7 @@ const productDetails = [
   { id: 8, img: "/app/images/curology.png", name: "Curology Set", price: 500, rating: 4, reviews: 145 },
   { id: 9, img: "/app/images/ev.png", name: "Kids Electric Car", price: 960, rating: 5, reviews: 65, isNew: true, colors: ["#DC2626", "#FCA5A5"] },
   { id: 10, img: "/app/images/cleats.png", name: "Jr. Zoom Soccer Cleats", price: 1160, rating: 5, reviews: 35, colors: ["#EAB308", "#000000"] },
-  { id: 4, img: "/app/images/controller.jpg", price: 100, rating: 4.5, reviews: 55, name: "GP11 USB Gamepad", isNew: true, colors: ["#000000", "#DC2626"] },
+  { id: 4, img: "/app/images/g11gamepad.png", price: 100, rating: 4.5, reviews: 55, name: "GP11 USB Gamepad", isNew: true, colors: ["#000000", "#DC2626"] },
   { id: 5, img: "/app/images/jacket.png", price: 660, rating: 4.5, reviews: 55, name: "Quilted Satin Jacket", colors: ["#065F46", "#DC2626"] },
   { id: 11, img: "/app/images/wireless-earbuds.png", name: "Wireless Noise-Cancelling Earbuds", price: 180, rating: 4.5, reviews: 420 },
   { id: 12, img: "/app/images/smartwatch.png", name: "Fitness Smartwatch", price: 220, rating: 4.8, reviews: 280, isNew: true },

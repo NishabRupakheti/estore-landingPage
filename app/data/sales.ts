@@ -1,7 +1,7 @@
 const SalesData = [
     {
         id: 1,
-        img: "/app/images/controller.jpg",
+        img: "/app/images/controller.png",
         name: "GamePad",
         originalPrice: 110,
         finalPrice: 100,
@@ -11,7 +11,7 @@ const SalesData = [
     {
         id: 2,
         img: "/app/images/signup.png",
-        name: "Controller",
+        name: "Phone",
         originalPrice: 60,
         finalPrice: 30,
         ratingCount: 500,

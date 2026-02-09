@@ -1,11 +1,14 @@
 export interface Product {
   id: number;
   name: string;
-  price: number;
   img: string;
   rating: number;
-  reviews: number;
-  isNew?: boolean; 
+  price?: number;
+  reviews?: number;
+  isNew?: boolean;
   colors?: string[];
+  originalPrice?: number;
+  finalPrice?: number;
+  ratingCount?: number;
 }
 

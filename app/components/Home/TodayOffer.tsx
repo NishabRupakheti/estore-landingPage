@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import SalesData from "../../data/sales"
-import type { Sales } from "~/types/sales"
+import type { Product } from "~/types/product"
+
 
 const TodayOffer = () => {
     // time state for countdown timer
@@ -97,13 +98,11 @@ const TodayOffer = () => {
                 {/* Navigation Buttons - Hidden on extra small screens or moved to side */}
                 <div className="hidden sm:flex gap-2 self-end md:self-end">
                     <button className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors">
-                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M11 5L4 12L11 19M4 12H20" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> </svg>
                     </button>
                     <button className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors">
-                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.75 7.75H17.25M17.25 7.75L10.25 0.75M17.25 7.75L10.25 14.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </button>
                 </div>
@@ -112,13 +111,13 @@ const TodayOffer = () => {
             {/* card section */}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12" >
-                {SalesData.map((item: Sales) => (
+                {SalesData.map((item: Product) => (
                     <div key={item.id} className="group relative cursor-pointer hover:shadow-lg transition-shadow duration-300 rounded-lg " >
                         {/* Product Image Container */}
                         <div className="relative bg-gray-100 p-8 mb-4 flex items-center justify-center h-64">
                             {/* Discount Badge */}
                             <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-medium px-3 py-1 rounded">
-                                -{calculateDiscount(item.originalPrice, item.finalPrice)}%
+                                -{calculateDiscount(item.originalPrice ?? 0, item.finalPrice ?? 0)}%
                             </div>
 
                             {/* Wishlist & View Icons */}

@@ -11,9 +11,9 @@ const NewArrival = () => {
             <h2 className="text-4xl font-bold mb-12">New Arrival</h2>
 
             {/* Featured Grid Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-150">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Left Column - PlayStation 5 (Takes full height) */}
-                <div className="relative bg-black rounded overflow-hidden group">
+                <div className="relative bg-black rounded overflow-hidden group min-h-150">
                     <img 
                         src={NewArrivals[0].img} 
                         alt={NewArrivals[0].name} 
@@ -33,7 +33,7 @@ const NewArrival = () => {
                 {/* Right Column - 3 sections */}
                 <div className="flex flex-col gap-8">
                     {/* Women's Collections (Takes 1/2 height) */}
-                    <div className="relative bg-black rounded overflow-hidden h-[48%] group">
+                    <div className="relative bg-black rounded overflow-hidden min-h-71 group">
                         <img 
                             src={NewArrivals[1].img} 
                             alt={NewArrivals[1].name} 
@@ -51,9 +51,9 @@ const NewArrival = () => {
                     </div>
 
                     {/* Bottom Row - Speakers and Perfume */}
-                    <div className="grid grid-cols-2 gap-8 h-[48%]">
+                    <div className="grid grid-cols-2 gap-8">
                         {/* Speakers */}
-                        <div className="relative bg-black rounded overflow-hidden group">
+                        <div className="relative bg-black rounded overflow-hidden min-h-71 group">
                             <img 
                                 src={NewArrivals[2].img} 
                                 alt={NewArrivals[2].name} 
@@ -71,7 +71,7 @@ const NewArrival = () => {
                         </div>
 
                         {/* Perfume */}
-                        <div className="relative bg-black rounded overflow-hidden group">
+                        <div className="relative bg-black rounded overflow-hidden min-h-71 group">
                             <img 
                                 src={NewArrivals[3].img} 
                                 alt={NewArrivals[3].name} 
