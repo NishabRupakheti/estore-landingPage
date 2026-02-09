@@ -14,7 +14,13 @@ interface CartState {
 
 const initialState: CartState = {
     items: [
-
+        {
+            id: 1,
+            name: "TV",
+            price: 50,
+            img: "/app/images/TV.png",
+            quantity: 1,
+        }
     ],
 };
 

@@ -4,6 +4,7 @@ import ExploreProduct from "~/components/Home/ExploreProduct";
 import CatagoryBrowser from "~/components/Home/CatagoryBrowser";
 import NewArrival from "~/components/Home/NewArrival";
 import Service from "~/components/about/Service";
+import BestSellingProduct from "~/components/Home/BestSellingProduct";
 
 
 export function Welcome() { // home component
@@ -12,6 +13,7 @@ export function Welcome() { // home component
       <TopLevel />
       <TodayOffer />
       <CatagoryBrowser />
+      <BestSellingProduct />
       <ExploreProduct />
       <NewArrival />
       <Service />

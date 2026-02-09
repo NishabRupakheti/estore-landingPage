@@ -57,7 +57,7 @@ const NewArrival = () => {
                             <img 
                                 src={NewArrivals[2].img} 
                                 alt={NewArrivals[2].name} 
-                                className="w-full h-full object-cover opacity-80"
+                                className="w-full h-full object-none opacity-80"
                             />
                             <div className="absolute bottom-6 left-6 text-white">
                                 <h3 className="text-xl font-semibold mb-2">Speakers</h3>
@@ -75,7 +75,7 @@ const NewArrival = () => {
                             <img 
                                 src={NewArrivals[3].img} 
                                 alt={NewArrivals[3].name} 
-                                className="w-full h-full object-cover opacity-80"
+                                className="w-full h-full object-none opacity-80"
                             />
                             <div className="absolute bottom-6 left-6 text-white">
                                 <h3 className="text-xl font-semibold mb-2">Perfume</h3>

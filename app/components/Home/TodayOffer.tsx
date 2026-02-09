@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import SalesData from "../../data/sales"
+import products from "../../data/products"
 import type { Product } from "~/types/product"
 
 
@@ -44,7 +44,10 @@ const TodayOffer = () => {
     }, [])
 
 
-    // we need to show discount percent in the card 
+    // Filter products that are on sale
+    const saleProducts = products.filter(p => p.originalPrice)
+    
+    // Calculate discount percent
     const calculateDiscount = (original: number, final: number) => {
         return Math.round(((original - final) / original) * 100)
     }
@@ -111,13 +114,13 @@ const TodayOffer = () => {
             {/* card section */}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12" >
-                {SalesData.map((item: Product) => (
+                {saleProducts.map((item: Product) => (
                     <div key={item.id} className="group relative cursor-pointer hover:shadow-lg transition-shadow duration-300 rounded-lg " >
                         {/* Product Image Container */}
                         <div className="relative bg-gray-100 p-8 mb-4 flex items-center justify-center h-64">
                             {/* Discount Badge */}
                             <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-medium px-3 py-1 rounded">
-                                -{calculateDiscount(item.originalPrice ?? 0, item.finalPrice ?? 0)}%
+                                -{calculateDiscount(item.originalPrice!, item.price)}%
                             </div>
 
                             {/* Wishlist & View Icons */}
@@ -147,7 +150,7 @@ const TodayOffer = () => {
                         <div>
                             <h4 className="text-base font-medium mb-2" >{item.name}</h4>
                             <div className="flex items-center gap-3 mb-2">
-                                <span className="text-red-500 font-medium text-base">${item.finalPrice}</span>
+                                <span className="text-red-500 font-medium text-base">${item.price}</span>
                                 <span className="line-through text-gray-400 text-base">${item.originalPrice}</span>
                             </div>
 
@@ -164,7 +167,7 @@ const TodayOffer = () => {
                                         </svg>
                                     ))}
                                 </div>
-                                <span className="text-gray-500 text-sm">({item.ratingCount})</span>
+                                <span className="text-gray-500 text-sm">({item.reviews})</span>
                             </div>
                         </div>
                     </div>

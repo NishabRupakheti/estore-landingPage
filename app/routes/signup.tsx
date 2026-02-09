@@ -19,7 +19,7 @@ export default function Signup() {
         <div className="max-w-7xl mx-auto px-4 py-8 md:py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                 {/* Left side - Image */}
-                <div className="flex justify-center md:justify-end">
+                <div className="flex justify-center bg-gray-200 md:justify-end">
                     <img src="/app/images/signup.png" alt="signup image" className="max-w-full h-auto" />
                 </div>
                 

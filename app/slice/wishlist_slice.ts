@@ -15,7 +15,20 @@ interface WishlistState {
 
 const initialState: WishlistState = {
     items: [
-
+        {
+            id: 1,
+            name: "Dog Food",
+            price: 100,
+            img: "/app/images/dogfood.png",
+            originalPrice: 120,
+        },
+        {
+            id: 2,
+            name: "DSLR Camera",
+            price: 400,
+            img: "/app/images/cam.png",
+            originalPrice: 450,
+        }
     ],
 };
 
