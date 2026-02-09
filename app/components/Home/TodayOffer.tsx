@@ -72,28 +72,15 @@ const TodayOffer = () => {
 
                         {/* Countdown Timer */}
                         <div className="flex items-center gap-3 md:gap-4 pb-1">
-                            <div className="text-center">
-                                <div className="text-[10px] md:text-xs font-medium mb-1">Days</div>
-                                <div className="text-2xl md:text-3xl font-bold">{String(timeLeft.days).padStart(2, '0')}</div>
-                            </div>
-                            <span className="text-red-500 text-xl md:text-2xl font-bold pb-1">:</span>
-
-                            <div className="text-center">
-                                <div className="text-[10px] md:text-xs font-medium mb-1">Hours</div>
-                                <div className="text-2xl md:text-3xl font-bold">{String(timeLeft.hours).padStart(2, '0')}</div>
-                            </div>
-                            <span className="text-red-500 text-xl md:text-2xl font-bold pb-1">:</span>
-
-                            <div className="text-center">
-                                <div className="text-[10px] md:text-xs font-medium mb-1">Minutes</div>
-                                <div className="text-2xl md:text-3xl font-bold">{String(timeLeft.minutes).padStart(2, '0')}</div>
-                            </div>
-                            <span className="text-red-500 text-xl md:text-2xl font-bold pb-1">:</span>
-
-                            <div className="text-center">
-                                <div className="text-[10px] md:text-xs font-medium mb-1">Seconds</div>
-                                <div className="text-2xl md:text-3xl font-bold">{String(timeLeft.seconds).padStart(2, '0')}</div>
-                            </div>
+                            {(['days', 'hours', 'minutes', 'seconds'] as const).map((unit, index) => (
+                                <>
+                                    <div key={unit} className="text-center">
+                                        <div className="text-[10px] md:text-xs font-medium mb-1 capitalize">{unit}</div>
+                                        <div className="text-2xl md:text-3xl font-bold">{String(timeLeft[unit]).padStart(2, '0')}</div>
+                                    </div>
+                                    {index < 3 && <span className="text-red-500 text-xl md:text-2xl font-bold pb-1">:</span>}
+                                </>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -147,7 +134,7 @@ const TodayOffer = () => {
                         </div>
 
                         {/* Product Info */}
-                        <div>
+                        <div className="px-2" >
                             <h4 className="text-base font-medium mb-2" >{item.name}</h4>
                             <div className="flex items-center gap-3 mb-2">
                                 <span className="text-red-500 font-medium text-base">${item.price}</span>
