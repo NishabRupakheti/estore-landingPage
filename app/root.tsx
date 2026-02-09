@@ -59,8 +59,8 @@ export default function App() {
 // Client-only Redux Provider wrapper to prevent SSR hydration issues
 function ClientReduxProvider({ children }: { children: React.ReactNode }) {
   // Lazy load Redux Provider and store to ensure it's only used on the client
-  const [ReduxProvider, setReduxProvider] = React.useState<React.ComponentType<{ children: React.ReactNode; store: any }> | null>(null);
-  const [reduxStore, setReduxStore] = React.useState<any>(null);
+  const [ReduxProvider, setReduxProvider] = React.useState<typeof import("react-redux").Provider | null>(null);
+  const [reduxStore, setReduxStore] = React.useState<typeof import("./store").store | null>(null);
 
   React.useEffect(() => {
     // This only runs on the client
@@ -72,7 +72,8 @@ function ClientReduxProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  // During SSR or before Redux loads, render children without Redux
+  // During SSR or before Redux loads, render children without Redux.
+  // Components using Redux hooks should handle the case where the store is not available.
   if (!ReduxProvider || !reduxStore) {
     return <>{children}</>;
   }
