@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 const TopLevel = () => {
   const [currentSlide, setCurrentSlide] = useState(0)

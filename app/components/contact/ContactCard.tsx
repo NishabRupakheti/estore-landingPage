@@ -1,7 +1,6 @@
 import { IoCallOutline } from "react-icons/io5";
 import { HiOutlineMail } from "react-icons/hi";
 
-
 const ContactCard = () => {
     return (
         <div className="max-w-sm rounded-md bg-white p-8 shadow-sm border border-gray-100 font-sans">
