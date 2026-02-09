@@ -2,17 +2,19 @@ import { useSelector, useDispatch } from "react-redux"
 import { removeFromWishlist, clearWishlist } from "~/slice/wishlist_slice";
 import { addItemToCart } from "~/slice/product_cart_slice";
 import { FaRegTrashAlt, FaShoppingCart } from "react-icons/fa";
+// Import the RootState type for better type checking 
+import type { RootState } from "../../store";
 
 
 const Wishlist = () => {
 
   const dispatch = useDispatch();
-  const { items } = useSelector((state: any) => state.wishlist); // get the wishlist items from the store
+  const { items } = useSelector((state: RootState) => state.wishlist); // get the wishlist items from the store
 
 
-  const MoveToBag = (items: any[]) => {
+  const MoveToBag = () => {
     // adding all the items to cart
-    items.forEach((item: any) => {
+    items.forEach((item) => {
       dispatch(addItemToCart({
         ...item,
         quantity: 1,
@@ -30,9 +32,9 @@ const Wishlist = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-xl font-normal">Wishlist ({items.length})</h1>
-        <button 
-          className="px-8 py-3 border border-gray-800 text-gray-900 font-medium rounded hover:bg-gray-50 transition-colors" 
-          onClick={() => MoveToBag(items)}
+        <button
+          className="px-8 py-3 border border-gray-800 text-gray-900 font-medium rounded hover:bg-gray-50 transition-colors"
+          onClick={MoveToBag}
         >
           Move All To Bag
         </button>
@@ -40,7 +42,7 @@ const Wishlist = () => {
 
       {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {items.map((item: any) => (
+        {items.map((item) => (
           <div key={item.id} className="relative group">
             {/* Product Card */}
             <div className="bg-gray-100 rounded-lg overflow-hidden mb-4 relative">
@@ -61,9 +63,9 @@ const Wishlist = () => {
 
               {/* Product Image */}
               <div className="aspect-square flex items-center justify-center p-8">
-                <img 
-                  src={item.img} 
-                  alt={item.name} 
+                <img
+                  src={item.img}
+                  alt={item.name}
                   className="max-w-full max-h-full object-contain"
                 />
               </div>

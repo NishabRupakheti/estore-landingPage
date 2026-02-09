@@ -6,6 +6,7 @@ interface WishlistItem {
     price: number;
     img: string;
     discount?: number;
+    originalPrice: number;
 }
 
 interface WishlistState {

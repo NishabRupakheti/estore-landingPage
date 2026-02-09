@@ -115,7 +115,7 @@ const ExploreProduct = () => {
 
             {/* View All Button */}
             <div className="flex justify-center">
-                <button className="bg-red-500 hover:bg-red-600 text-white px-12 py-3 rounded transition-colors" onClick={() => setAllProductsVisible(!allProductsVisible)}>
+                <button className="bg-red-500 hover:bg-red-600 text-white px-12 py-3 rounded transition-colors cursor-pointer " onClick={() => setAllProductsVisible(!allProductsVisible)}>
                     {
                         allProductsVisible ? 'Show Less' : 'View All Products'
                     }

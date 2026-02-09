@@ -24,7 +24,7 @@ const cart = () => {
     dispatch(updateItemQuantity({ id, quantity: value }));
   };
 
-  const subtotal = items.reduce((total: number, item: any) =>
+  const subtotal = items.reduce((total: number, item) =>
     total + item.price * item.quantity, 0
   );
 
@@ -46,7 +46,7 @@ const cart = () => {
 
           {/* Table Body */}
           <div className="divide-y divide-gray-200">
-            {items.map((item: any) => (
+            {items.map((item) => (
               <div key={item.id} className="grid grid-cols-4 gap-4 p-4 items-center">
                 {/* Product */}
                 <div className="flex items-center gap-3">
