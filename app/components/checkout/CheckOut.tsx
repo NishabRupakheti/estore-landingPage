@@ -1,4 +1,4 @@
-import {  useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import type { RootState } from "~/store";
 import { useState } from "react"
 
@@ -48,6 +48,7 @@ const CheckOut = () => {
                 <label className="flex items-center justify-between cursor-pointer">
                     <div className="flex items-center gap-3">
                         <input
+                            suppressHydrationWarning
                             type="radio"
                             name="payment"
                             value="bank"
@@ -68,6 +69,7 @@ const CheckOut = () => {
                 {/* Cash on Delivery */}
                 <label className="flex items-center gap-3 cursor-pointer">
                     <input
+                        suppressHydrationWarning
                         type="radio"
                         name="payment"
                         value="cash"
@@ -82,6 +84,7 @@ const CheckOut = () => {
             {/* Coupon Section */}
             <div className="mt-6 flex gap-3">
                 <input
+                    suppressHydrationWarning
                     type="text"
                     placeholder="Coupon Code"
                     value={couponCode}

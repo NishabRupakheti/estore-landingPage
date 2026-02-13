@@ -11,6 +11,7 @@ const Footer = () => {
                         <h3 className="text-xl font-bold">Exclusive</h3>
                         <h4 className="text-sm">Subscribe to our newsletter</h4>
                         <input
+                            suppressHydrationWarning
                             type="text"
                             placeholder="Enter your email"
                             className="p-2 rounded border border-gray-600 bg-black text-white focus:outline-none focus:border-white"

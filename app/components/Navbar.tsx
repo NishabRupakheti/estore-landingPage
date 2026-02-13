@@ -26,28 +26,29 @@ const Navbar = () => {
 
         {/* Desktop Navigation Links */}
         <div className="hidden lg:flex gap-8">
-            {[
+          {[
             { to: "/", label: "Home" },
             { to: "/contact", label: "Contact" },
             { to: "/about", label: "About" },
             { to: "/signup", label: "Sign Up" }
-            ].map(({ to, label }) => (
+          ].map(({ to, label }) => (
             <NavLink
               key={to}
               to={to}
               className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : "hover:underline hover:underline-offset-4"
+                isActive ? "underline underline-offset-4" : "hover:underline hover:underline-offset-4"
               }
             >
               {label}
             </NavLink>
-            ))}
+          ))}
         </div>
 
         {/* Desktop Search and Icons */}
         <div className="hidden md:flex items-center gap-4 lg:gap-6">
           <div className="relative flex items-center">
             <input
+              suppressHydrationWarning
               type="text"
               placeholder="What are you looking for?"
               className="bg-gray-100 px-4 py-2 pr-10 rounded text-sm outline-none focus:ring-1 focus:ring-gray-300 w-48 lg:w-auto"
@@ -90,6 +91,7 @@ const Navbar = () => {
         <div className="md:hidden px-4 pb-4">
           <div className="relative flex items-center">
             <input
+              suppressHydrationWarning
               type="text"
               placeholder="What are you looking for?"
               className="w-full bg-gray-100 px-4 py-2 pr-10 rounded text-sm outline-none focus:ring-1 focus:ring-gray-300"

@@ -28,6 +28,7 @@ const Signupform = ({ setIsLogin }: SignupformProps) => {
 
       <form className="space-y-6">
         <input
+          suppressHydrationWarning
           type="text"
           placeholder="Name"
           className="w-full border-b border-gray-300 pb-2 outline-none focus:border-gray-500 transition-colors"
@@ -36,6 +37,7 @@ const Signupform = ({ setIsLogin }: SignupformProps) => {
         />
 
         <input
+          suppressHydrationWarning
           type="text"
           placeholder="Email or Phone Number"
           className="w-full border-b border-gray-300 pb-2 outline-none focus:border-gray-500 transition-colors"
@@ -44,6 +46,7 @@ const Signupform = ({ setIsLogin }: SignupformProps) => {
         />
 
         <input
+          suppressHydrationWarning
           type="password"
           placeholder="Password"
           className="w-full border-b border-gray-300 pb-2 outline-none focus:border-gray-500 transition-colors"
