@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { Fragment, useState, useEffect } from "react"
 import products from "../../data/products"
 import type { Product } from "~/types/product"
 
@@ -46,7 +46,7 @@ const TodayOffer = () => {
 
     // Filter products that are on sale
     const saleProducts = products.filter(p => p.originalPrice)
-    
+
     // Calculate discount percent
     const calculateDiscount = (original: number, final: number) => {
         return Math.round(((original - final) / original) * 100)
@@ -73,13 +73,13 @@ const TodayOffer = () => {
                         {/* Countdown Timer */}
                         <div className="flex items-center gap-3 md:gap-4 pb-1">
                             {(['days', 'hours', 'minutes', 'seconds'] as const).map((unit, index) => (
-                                <>
-                                    <div key={unit} className="text-center">
+                                <Fragment key={unit}>
+                                    <div className="text-center">
                                         <div className="text-[10px] md:text-xs font-medium mb-1 capitalize">{unit}</div>
                                         <div className="text-2xl md:text-3xl font-bold">{String(timeLeft[unit]).padStart(2, '0')}</div>
                                     </div>
                                     {index < 3 && <span className="text-red-500 text-xl md:text-2xl font-bold pb-1">:</span>}
-                                </>
+                                </Fragment>
                             ))}
                         </div>
                     </div>
@@ -88,11 +88,11 @@ const TodayOffer = () => {
                 {/* Navigation Buttons - Hidden on extra small screens or moved to side */}
                 <div className="hidden sm:flex gap-2 self-end md:self-end">
                     <button className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M11 5L4 12L11 19M4 12H20" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M11 5L4 12L11 19M4 12H20" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /> </svg>
                     </button>
                     <button className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors">
                         <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.75 7.75H17.25M17.25 7.75L10.25 0.75M17.25 7.75L10.25 14.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M0.75 7.75H17.25M17.25 7.75L10.25 0.75M17.25 7.75L10.25 14.75" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </button>
                 </div>
