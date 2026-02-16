@@ -9,6 +9,7 @@ import {
 import Navbar from "./components/Navbar";
 import BlackRibbon from "./components/BlackRibbon";
 import Footer from "./components/Footer";
+import './i18n'
 import { Provider } from "react-redux";
 import { store } from "./store";
 
