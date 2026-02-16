@@ -10,14 +10,13 @@ import { useTranslation } from "react-i18next";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 
-
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [toggleBoxOpen, setToggleBoxOpen] = useState(false);
   const { i18n } = useTranslation();
 
-  const handleLanguageChange = (language: "en" | "ne") => {
+  const handleLanguageChange = (language: "en" | "np") => {
     i18n.changeLanguage(language);
     setToggleBoxOpen(false);
   };
@@ -59,9 +58,9 @@ const Navbar = () => {
               <button
                 type="button"
                 className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
-                onClick={() => handleLanguageChange("ne")}
+                onClick={() => handleLanguageChange("np")}
                 role="option"
-                aria-selected={i18n.language === "ne"}
+                aria-selected={i18n.language === "np"}
               >
                 Nepali
               </button>
