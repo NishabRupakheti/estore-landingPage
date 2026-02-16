@@ -6,12 +6,21 @@ import { CiMenuBurger } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 import { VscAccount } from "react-icons/vsc";
+import { useTranslation } from "react-i18next";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [toggleBoxOpen, setToggleBoxOpen] = useState(false);
+  const { i18n } = useTranslation();
+
+  const handleLanguageChange = (language: "en" | "ne") => {
+    i18n.changeLanguage(language);
+    setToggleBoxOpen(false);
+  };
 
   return (
     <nav className="border-b border-gray-200 bg-white">
@@ -22,6 +31,42 @@ const Navbar = () => {
           <NavLink to="/" className="text-gray-900 hover:text-gray-700 transition-colors">
             Exclusive
           </NavLink>
+        </div>
+
+        <div className="relative hidden md:block">
+          <button
+            className="flex items-center gap-1 text-sm text-gray-700 hover:text-gray-900 transition-colors cursor-pointer"
+            onClick={() => setToggleBoxOpen((prev) => !prev)}
+            aria-expanded={toggleBoxOpen}
+            aria-haspopup="listbox"
+          >
+            <IoMdArrowDropdown size={20} className="text-gray-700" />
+          </button>
+          {toggleBoxOpen && (
+            <div
+              className="absolute right-0 mt-2 w-40 rounded border border-gray-200 bg-white shadow-lg"
+              role="listbox"
+            >
+              <button
+                type="button"
+                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                onClick={() => handleLanguageChange("en")}
+                role="option"
+                aria-selected={i18n.language === "en"}
+              >
+                English
+              </button>
+              <button
+                type="button"
+                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
+                onClick={() => handleLanguageChange("ne")}
+                role="option"
+                aria-selected={i18n.language === "ne"}
+              >
+                Nepali
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Desktop Navigation Links */}
