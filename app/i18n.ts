@@ -20,7 +20,7 @@ i18n
                 translation: np
             }
         },
-        lng: 'en', // Default language
+        lng: 'np', // Default language
         fallbackLng: 'en',
         interpolation: {
             escapeValue: false // React already escapes values to prevent XSS

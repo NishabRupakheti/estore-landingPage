@@ -4,5 +4,36 @@
         "point1": "Launched in 2015, Exclusive is South Asia's premier online shopping marketplace with an active presence in Nepal. Supported by a wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sellers and 300 brands and serves 3 million customers across the region.",
         "point2": "Exclusive has more than 1 Million products to offer, growing at a very fast pace. Exclusive offers a diverse assortment in categories ranging from consumer electronics to fashion and home goods.",
         "image_alt": "Our story - Happy shoppers"
+    },
+    "footer": {
+        "subscribe": "Subscribe to our newsletter",
+        "email_placeholder": "Enter your email",
+        "support": {
+            "title": "Support",
+            "address": "Emmanantie 10k, Jyvaskyla, Finland",
+            "phone": "Phone: +358 44 1234567",
+            "email": "Email: support@example.com"
+        },
+        "account": {
+            "title": "Account",
+            "my_account": "My Account",
+            "login_register": "Login / Register",
+            "cart": "Cart",
+            "wishlist": "Wishlist"
+        },
+        "quick_links": {
+            "title": "Quick links",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service",
+            "faq": "FAQ",
+            "contact": "Contact"
+        },
+        "download": {
+            "title": "Download App",
+            "promo": "Save $3 with App New User Only",
+            "qr_alt": "QR code",
+            "gplay_alt": "Get it on Google Play",
+            "appstore_alt": "Download on the App Store"
+        }
     }
 }
